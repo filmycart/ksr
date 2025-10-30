@@ -1,0 +1,60 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: ./docker/php/Dockerfile
+    image: laravel10-app
+    container_name: ksr-app
+    restart: unless-stopped
+    ports:
+      - "9000:80"
+      - "9001:443"
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx/default.conf:/etc/nginx/conf.d/default.conf
+      - ./docker/ssl:/etc/ssl/private
+    depends_on:
+      - db
+    environment:
+      - APP_ENV=local
+      - APP_DEBUG=true
+      - APP_KEY=
+      - DB_HOST=db
+      - DB_PORT=3306
+      - DB_DATABASE=ksr
+      - DB_USERNAME=ksr_usr
+      - DB_PASSWORD=Nachiyar*1984
+
+  db:
+    image: mysql:8.0
+    container_name: ksr-db
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: ksr
+      MYSQL_USER: ksr_usr
+      MYSQL_PASSWORD: Nachiyar*1984
+      MYSQL_ROOT_PASSWORD: Nachiyar*1984
+    volumes:
+      - db_data:/var/lib/mysql
+    ports:
+      - "3306:3306"
+
+  adminer:
+    image: adminer
+    container_name: ksr-adminer
+    restart: always
+    ports:
+      - "8080:8080"
+    depends_on:
+      - db
+
+  npm:
+    image: node:20
+    container_name: ksr-npm
+    working_dir: /var/www/html
+    volumes:
+      - .:/var/www/html
+    command: ["npm", "run", "dev"]
+
+volumes:
+  db_data:
