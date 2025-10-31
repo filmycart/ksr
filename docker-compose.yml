@@ -24,6 +24,8 @@ services:
       - DB_DATABASE=ksr
       - DB_USERNAME=ksr_usr
       - DB_PASSWORD=Nachiyar*1984
+    networks:
+      - ksr_network
 
   db:
     image: mysql:8.0
@@ -38,6 +40,8 @@ services:
       - db_data:/var/lib/mysql
     ports:
       - "3306:3306"
+    networks:
+      - ksr_network
 
   adminer:
     image: adminer
@@ -47,6 +51,8 @@ services:
       - "8080:8080"
     depends_on:
       - db
+    networks:
+      - ksr_network
 
   npm:
     image: node:20
@@ -55,6 +61,12 @@ services:
     volumes:
       - .:/var/www/html
     command: ["npm", "run", "dev"]
+    networks:
+      - ksr_network
 
 volumes:
   db_data:
+
+networks:
+  ksr_network:
+    driver: bridge
