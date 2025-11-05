@@ -64,7 +64,6 @@
     cursor: pointer;
 }
 
-
 .categorymenudropdown {
   position: relative;
   display: inline-block;
@@ -74,30 +73,55 @@
 .categorymenudropdown-content {
   display: none;
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
+  background-color: #FFFFFF;
+  width: 1260px;
+  min-width: 1260px;
+  min-height: 500px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
-  margin-left:0px;
+  margin-left:-100px;
   margin-top:85px;
-  border:0px solid red;
-  border-radius: 5px 5px 5px 5px;
+  margin-bottom:30px;
+  border:1px solid red;
+  border-radius: 0px 0px 0px 0px;
 }
 
 /* Links inside the dropdown */
 .categorymenudropdown-content a {
   color: black;
-  padding: 12px 16px;
+  margin: 30px 0px 0px 50px;
   text-decoration: none;
   display: block;
-  border-radius: 5px 5px 5px 5px;
+  border-radius: 0px 0px 0px 0px;
+  width: 150px;
+  border:0px solid red !important;
+}
+
+.subcategorymenudropdown-content {
+  margin: 0px 0px 0px 50px !important;
+  border:0px solid red !important;
+}
+
+/* Links inside the dropdown */
+.subcategorymenudropdown-content a {
+  text-decoration: none;
+  width: 200px;
+  margin: 10px 0px 0px 10px !important;
+  border: 0px solid black !important;
 }
 
 /* Change color of dropdown links on hover */
-.categorymenudropdown-content a:hover {background-color: #f1f1f1}
+.categorymenudropdown-content a:hover {background-color: #FFFFFF;}
 
 /* Show the dropdown menu on hover */
 .categorymenudropdown:hover .categorymenudropdown-content {
+  display: block;
+}
+
+.subcategorymenudropdown-content a:hover {background-color: #FFFFFF;}
+
+/* Show the dropdown menu on hover */
+.subcategorymenudropdown:hover .subcategorymenudropdown-content {
   display: block;
 }
 
@@ -105,13 +129,6 @@
 .categorymenudropdown:hover .categorymenudropdownbtn {
   background-color: #87C232;
 }
-
-
-
-
-
-
-
 
 /*.dropbtn-menu {
     background-color: #87C232;
@@ -212,7 +229,21 @@
 .cat-name{
   color:#393333 !important;
   font-size: 13px;
-  font-weight: bold;
+  font-weight: normal;
+  text-transform:uppercase;
+}
+
+.sub-cat-name{
+  color:#393333 !important;
+  font-size: 13px;
+  font-weight: normal;
+  text-transform:uppercase;
+}
+
+.sub-sub-cat-name{
+  color:#393333 !important;
+  font-size: 13px;
+  font-weight: normal;
 }
 
 .gry-bg{

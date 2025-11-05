@@ -17,7 +17,7 @@ services:
       - db
     environment:
       - APP_ENV=local
-      - APP_DEBUG=true
+      - APP_DEBUG=false
       - APP_KEY=
       - DB_HOST=db
       - DB_PORT=3306

@@ -15,6 +15,15 @@ class CategoryUtility
         return $children;
     }
 
+    /*when with trashed is true id will get even the deleted items*/
+    public static function get_immediate_sub_children($id, $with_trashed = false, $as_array = false)
+    {
+        $children = $with_trashed ? Category::where('parent_id', $id)->orderBy('order_level', 'desc')->get() : Category::where('parent_id', $id)->orderBy('order_level', 'desc')->get();
+        $children = $as_array && !is_null($children) ? $children->toArray() : $children;
+
+        return $children;
+    }
+
     public static function get_immediate_children_ids($id, $with_trashed = false)
     {
 

@@ -454,6 +454,18 @@
         @endif
 
         $(document).ready(function() {
+            $('.search-icon').on('click', function() {
+                $('#searchPop').slideFadeToggle();
+                return false;
+            });
+
+            $.fn.slideFadeToggle = function(easing, callback) {
+              return this.animate({
+                opacity: 'toggle',
+                height: 'toggle'
+              }, 'fast', easing, callback);
+            };
+
             $('.category-nav-element').each(function(i, el) {
 
                 $(el).on('mouseover', function(){

@@ -109,7 +109,12 @@
                     </a>
                 </div>
                 <!-- Search field -->
-                <div class="flex-grow-1 front-header-search d-flex align-items-center bg-white mx-xl-5">
+                <div class="bg-white border-gray-200 py-1">
+                    <div class="col-lg-3 position-static d-none d-lg-block">
+                        @include('frontend.partials.category_menu_new')
+                    </div>
+                </div>
+                <!-- <div class="flex-grow-1 front-header-search d-flex align-items-center bg-white mx-xl-5">
                     <div class="position-relative flex-grow-1 px-3 px-lg-0">
                         <form action="{{ route('search') }}" method="GET" class="stop-propagation">
                             <div class="d-flex position-relative align-items-center">
@@ -121,7 +126,7 @@
                                     <input type="text"
                                         class="border border-soft-light form-control fs-14 hov-animate-outline"
                                         id="search" name="keyword" @isset($query) value="{{ $query }}" @endisset
-                                        placeholder="{{ translate('I am shopping for...') }}" autocomplete="off">
+                                        placeholder="{{ translate('') }}" autocomplete="off">
 
                                     <svg id="Group_723" data-name="Group 723" xmlns="http://www.w3.org/2000/svg"
                                         width="20.001" height="20" viewBox="0 0 20.001 20">
@@ -152,15 +157,68 @@
                             </div>
                         </div>
                     </div>
+                </div> -->
+                <style>
+                    .search-bar-container {
+                      /* Initial styling for the search bar */
+                      display: none; /* Hide it by default */
+                      /* Add other styles like position, background, etc. */
+                    }
+
+                    .search-bar-container.show {
+                      display: block; /* Show when the 'show' class is added */
+                    }
+
+                    /* Z-index of #mask must lower than #boxes .window */
+                    .messagepop {
+                        background-color:#FFFFFF;
+                        cursor:default;
+                        display:none;
+                        margin-top: 163px;
+                        position:absolute;
+                        text-align:left;
+                        width:1260px;
+                        z-index:50;
+                        padding: 15px 15px 10px;
+                        border-top:0px solid #8d8d8d !important;
+                        border-right:1px solid #8d8d8d !important;
+                        border-bottom:1px solid #8d8d8d !important;
+                        border-left:1px solid #8d8d8d !important;
+                        border-radius: 0px 0px 5px 5px;
+                    }
+
+                    .labelPop {
+                        display: block;
+                        margin-bottom: 3px;
+                        padding-left: 15px;
+                        text-indent: -15px;
+                    }
+
+                    .messagepop p, .messagepop.div {
+                        border-bottom: 1px solid #EFEFEF;
+                        margin: 8px 0;
+                        padding-bottom: 8px;
+                    }
+                </style>    
+                <i class="fa fa-search search-icon"></i>
+                
+                <div class="messagepop pop" id="searchPop">
+                    <form action="{{ route('search') }}" method="GET" class="stop-propagation">
+                        <!-- <div class="search-bar-container hidden"> -->
+                            <input type="text" class="border border-soft-light form-control fs-14 hov-animate-outline" id="search" name="keyword" @isset($query) value="{{ $query }}" @endisset placeholder="{{ translate('') }}" autocomplete="off">
+                            <span class="icon icon-close"></span>
+                        <!-- </div> -->
+                    </form>
+                    <div id="search-content" class="text-left"></div>
                 </div>
                 <!-- Search box -->
-                <div class="d-none d-lg-none ml-3 mr-0">
+                <!-- <div class="d-none d-lg-none ml-3 mr-0">
                     <div class="nav-search-box">
                         <a href="#" class="nav-box-link">
                             <i class="la la-search la-flip-horizontal d-inline-block nav-box-icon"></i>
                         </a>
                     </div>
-                </div>
+                </div> -->
 
                 @if (Auth::check() && auth()->user()->user_type == 'customer')
                     <!-- Compare -->

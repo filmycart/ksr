@@ -3,7 +3,7 @@
 @section('content')
     <div class="aiz-main-wrapper d-flex flex-column">
         <div class="home-banner-area mb-4">
-            <div class=" col-lg-12 pt-2">
+            <!-- <div class=" col-lg-12 pt-2">
                 <div class="px-1 py-1 px-md-1 py-md-1 bg-white shadow-sm rounded">
                     <div class="d-flex mb-1 align-items-baseline">                        
                         <div class="bg-white border-gray-200 py-1">
@@ -13,7 +13,7 @@
                         </div> 
                     </div>    
                 </div>
-            </div>
+            </div> -->
             <!-- <div class=" col-lg-12 ">&nbsp;</div> -->
             <!-- <div class="container">
                 <div class="row gutters-10 position-relative"> -->
