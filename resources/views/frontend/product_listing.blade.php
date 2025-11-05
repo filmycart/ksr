@@ -37,7 +37,7 @@
 @section('content')
     
     <section class="mb-2 pt-2 aiz-main-wrapper">
-        <div class=" col-lg-12">
+        <!-- <div class=" col-lg-12">
             <div class="px-1 py-1 px-md-1 py-md-1 bg-white shadow-sm rounded">
                 <div class="d-flex mb-1 align-items-baseline">                        
                     <div class="bg-white border-gray-200 py-1">
@@ -47,7 +47,7 @@
                     </div> 
                 </div>    
             </div>
-        </div>
+        </div> -->
         <div class="container sm-px-0 pt-2">
             <form class="" id="search-form" action="" method="GET">
                 <div class="row">
